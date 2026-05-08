@@ -1,3 +1,5 @@
+import { Button } from "./ui";
+
 type SiteCardProps = {
   title: string;
   location: string;
@@ -80,12 +82,9 @@ export default function SiteCard({
             </div>
           ) : null}
 
-          <a
-            href={href}
-            className="mt-6 inline-flex h-11 items-center justify-center rounded-full border border-gold/35 bg-white/5 px-5 text-sm font-semibold text-foreground shadow-[0_0_26px_rgba(212,175,55,0.12)] backdrop-blur transition duration-300 hover:border-gold/70 hover:bg-gold hover:text-background hover:shadow-[0_0_34px_rgba(212,175,55,0.34)]"
-          >
+          <Button href={href} size="sm" variant="glass" className="mt-6">
             Explore
-          </a>
+          </Button>
         </div>
       </div>
     </article>

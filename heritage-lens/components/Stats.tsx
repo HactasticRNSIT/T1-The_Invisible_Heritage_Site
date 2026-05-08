@@ -1,3 +1,5 @@
+import { Card } from "./ui";
+
 const stats = [
   {
     label: "Forgotten Sites",
@@ -50,8 +52,10 @@ export default function Stats() {
 
         <div className="grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
           {stats.map((stat) => (
-            <article
+            <Card
               key={stat.label}
+              padding="none"
+              variant="gradient"
               className="group rounded-xl bg-[linear-gradient(135deg,rgba(212,175,55,0.58),rgba(255,255,255,0.12),rgba(47,111,115,0.42))] p-px shadow-[0_22px_60px_rgba(0,0,0,0.3),0_0_28px_rgba(212,175,55,0.07)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_78px_rgba(0,0,0,0.36),0_0_42px_rgba(212,175,55,0.16)]"
             >
               <div className="h-full rounded-xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl md:p-6">
@@ -65,7 +69,7 @@ export default function Stats() {
                   {stat.detail}
                 </p>
               </div>
-            </article>
+            </Card>
           ))}
         </div>
       </div>

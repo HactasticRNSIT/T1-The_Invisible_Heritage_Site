@@ -1,3 +1,5 @@
+import { Button } from "./ui";
+
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-background px-5 py-16 text-foreground sm:px-8 md:px-10 md:py-20 lg:px-16 lg:py-28 xl:px-20">
@@ -21,18 +23,12 @@ export default function Hero() {
             maps, and community knowledge.
           </p>
           <div className="animate-fade-in-up animation-delay-450 mt-8 flex flex-col gap-4 sm:flex-row sm:justify-start md:mt-10">
-            <a
-              href="#featured-sites"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#D4AF37] px-7 text-base font-semibold text-[#0B0F19] shadow-[0_0_38px_rgba(212,175,55,0.3)] transition duration-300 hover:-translate-y-1 hover:bg-[#f0cb53] hover:shadow-[0_0_46px_rgba(212,175,55,0.42)] active:scale-95"
-            >
+            <Button href="#featured-sites" variant="gold">
               Explore Sites
-            </a>
-            <a
-              href="#about"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-gold/35 bg-card-background px-7 text-base font-semibold text-foreground shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold/70 hover:bg-white/10"
-            >
+            </Button>
+            <Button href="#about" variant="glass">
               Learn More
-            </a>
+            </Button>
           </div>
         </div>
 
