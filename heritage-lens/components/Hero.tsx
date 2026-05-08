@@ -1,13 +1,18 @@
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-background px-6 py-20 text-foreground sm:px-10 lg:px-16 lg:py-28">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.18),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(139,115,85,0.18),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_45%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(212,175,55,0.22),transparent_26%),radial-gradient(circle_at_82%_16%,rgba(139,115,85,0.24),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_45%)]" />
+      <div className="absolute -left-28 top-10 -z-10 h-80 w-80 rounded-full bg-gold/25 blur-[110px]" />
+      <div className="absolute -right-24 top-0 -z-10 h-96 w-96 rounded-full bg-secondary/30 blur-[120px]" />
+      <div className="absolute bottom-0 left-1/2 -z-10 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-[#2f6f73]/20 blur-[130px]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(11,15,25,0.38),rgba(11,15,25,0.76)),radial-gradient(circle_at_center,transparent_0%,rgba(11,15,25,0.22)_46%,rgba(11,15,25,0.86)_100%)]" />
+      <div className="absolute inset-0 -z-10 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] bg-[size:72px_72px]" />
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1fr_0.92fr]">
         <div className="max-w-2xl">
-          <p className="animate-fade-in-up mb-5 w-fit rounded-full border border-gold/40 bg-card-background px-4 py-2 text-sm font-medium text-gold shadow-sm backdrop-blur transition duration-300 hover:border-gold/70 hover:bg-white/10">
+          <p className="animate-fade-in-up mb-5 w-fit rounded-full border border-gold/40 bg-card-background px-4 py-2 text-sm font-medium text-gold shadow-[0_0_34px_rgba(212,175,55,0.18)] backdrop-blur transition duration-300 hover:border-gold/70 hover:bg-white/10">
             HeritageLens AI
           </p>
-          <h1 className="animate-fade-in-up animation-delay-150 text-5xl font-semibold leading-tight text-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="animate-fade-in-up animation-delay-150 text-5xl font-semibold leading-tight text-foreground [text-shadow:0_0_34px_rgba(245,245,245,0.12)] sm:text-6xl lg:text-7xl">
             Rediscover Forgotten Heritage
           </h1>
           <p className="animate-fade-in-up animation-delay-300 mt-7 max-w-xl text-lg leading-8 text-[#D4AF37] [text-shadow:0_0_18px_rgba(212,175,55,0.35)] sm:text-xl">
@@ -18,7 +23,7 @@ export default function Hero() {
           <div className="animate-fade-in-up animation-delay-450 mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#featured-sites"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#D4AF37] px-7 text-base font-semibold text-[#0B0F19] shadow-lg shadow-[#D4AF37]/20 transition duration-300 hover:-translate-y-1 hover:bg-[#f0cb53] hover:shadow-[#D4AF37]/35"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[#D4AF37] px-7 text-base font-semibold text-[#0B0F19] shadow-[0_0_38px_rgba(212,175,55,0.3)] transition duration-300 hover:-translate-y-1 hover:bg-[#f0cb53] hover:shadow-[0_0_46px_rgba(212,175,55,0.42)]"
             >
               Explore Sites
             </a>
@@ -47,8 +52,9 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="animate-float-slow relative mx-auto h-[440px] max-w-[560px] rounded-[2rem] border border-white/10 bg-card-background p-5 shadow-2xl shadow-black/40 backdrop-blur transition duration-500 hover:border-gold/25">
+          <div className="animate-float-slow relative mx-auto h-[440px] max-w-[560px] rounded-[2rem] border border-white/10 bg-card-background p-5 shadow-[0_0_80px_rgba(212,175,55,0.14),0_28px_70px_rgba(0,0,0,0.52)] backdrop-blur transition duration-500 before:absolute before:-inset-10 before:-z-10 before:rounded-[3rem] before:bg-[radial-gradient(circle,rgba(212,175,55,0.18),transparent_62%)] before:blur-2xl hover:border-gold/25">
             <div className="absolute inset-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(212,175,55,0.18),rgba(255,255,255,0.03)),url('/globe.svg')] bg-[length:120px] bg-[right_2rem_top_2rem] bg-no-repeat opacity-95 invert" />
+            <div className="absolute inset-5 rounded-[1.5rem] bg-[linear-gradient(to_bottom,rgba(11,15,25,0.1),rgba(11,15,25,0.72))]" />
             <div className="absolute inset-8 rounded-[1.35rem] border border-gold/20" />
 
             <div className="absolute left-[18%] top-[30%] h-28 w-44 rotate-[-10deg] rounded-full bg-secondary/45 blur-sm" />
