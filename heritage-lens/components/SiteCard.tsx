@@ -27,7 +27,7 @@ export default function SiteCard({
   return (
     <article className="group rounded-xl bg-[linear-gradient(135deg,rgba(212,175,55,0.72),rgba(255,255,255,0.14),rgba(47,111,115,0.48))] p-px shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_32px_rgba(212,175,55,0.08)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(212,175,55,0.18),0_0_46px_rgba(47,111,115,0.14)]">
       <div className="h-full overflow-hidden rounded-xl border border-white/10 bg-card-background backdrop-blur-xl">
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-48 overflow-hidden md:h-52 xl:h-56">
           <img
             src={image}
             alt={imageAlt ?? title}
@@ -42,12 +42,12 @@ export default function SiteCard({
           </div>
         </div>
 
-        <div className="p-5">
+        <div className="p-4 md:p-5">
           <p className="mb-3 text-sm font-medium text-gold">{location}</p>
-          <h3 className="text-2xl font-semibold leading-tight text-foreground transition duration-300 group-hover:text-gold">
+          <h3 className="text-xl font-semibold leading-tight text-foreground transition duration-300 group-hover:text-gold md:text-2xl">
             {title}
           </h3>
-          <p className="mt-3 min-h-[72px] text-sm leading-6 text-foreground/72">
+          <p className="mt-3 text-sm leading-6 text-foreground/72 md:min-h-[72px]">
             {description}
           </p>
 
