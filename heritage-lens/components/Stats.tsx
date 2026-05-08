@@ -33,32 +33,32 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-[#090d16] px-6 py-20 text-foreground sm:px-10 lg:px-16">
+    <section className="relative overflow-hidden bg-[#090d16] px-5 py-16 text-foreground sm:px-8 md:px-10 md:py-20 lg:px-16 xl:px-20">
       <div className="absolute left-0 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-gold/10 blur-[120px]" />
       <div className="absolute right-0 top-0 h-72 w-96 rounded-full bg-[#2f6f73]/14 blur-[130px]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(11,15,25,0.34),rgba(11,15,25,0.72))]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-10 max-w-3xl">
+        <div className="mb-8 max-w-3xl md:mb-10">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gold">
             Impact Snapshot
           </p>
-          <h2 className="text-4xl font-semibold text-foreground sm:text-5xl">
+          <h2 className="text-3xl font-semibold text-foreground md:text-4xl xl:text-5xl">
             Heritage made visible, measurable, and alive.
           </h2>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
           {stats.map((stat) => (
             <article
               key={stat.label}
               className="group rounded-xl bg-[linear-gradient(135deg,rgba(212,175,55,0.58),rgba(255,255,255,0.12),rgba(47,111,115,0.42))] p-px shadow-[0_22px_60px_rgba(0,0,0,0.3),0_0_28px_rgba(212,175,55,0.07)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_78px_rgba(0,0,0,0.36),0_0_42px_rgba(212,175,55,0.16)]"
             >
-              <div className="h-full rounded-xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
+              <div className="h-full rounded-xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl md:p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-foreground/58">
                   {stat.label}
                 </p>
-                <p className="mt-4 text-4xl font-semibold text-gold [text-shadow:0_0_28px_rgba(212,175,55,0.32)] sm:text-5xl">
+                <p className="mt-4 text-3xl font-semibold text-gold [text-shadow:0_0_28px_rgba(212,175,55,0.32)] md:text-4xl xl:text-5xl">
                   {stat.value}
                 </p>
                 <p className="mt-4 text-sm leading-6 text-foreground/68">

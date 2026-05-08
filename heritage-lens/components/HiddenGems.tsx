@@ -43,19 +43,19 @@ export default function HiddenGems() {
   return (
     <section
       id="hidden-gems"
-      className="relative overflow-hidden bg-[#080b13] px-6 py-24 text-foreground sm:px-10 lg:px-16"
+      className="relative overflow-hidden bg-[#080b13] px-5 py-16 text-foreground sm:px-8 md:px-10 md:py-20 lg:px-16 lg:py-24 xl:px-20"
     >
       <div className="absolute left-1/3 top-0 h-72 w-96 rounded-full bg-secondary/14 blur-[120px]" />
       <div className="absolute right-10 bottom-0 h-80 w-80 rounded-full bg-gold/12 blur-[120px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(212,175,55,0.12),transparent_26%),radial-gradient(circle_at_78%_35%,rgba(47,111,115,0.12),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-12 grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-end">
+        <div className="mb-10 grid gap-6 md:gap-8 lg:mb-12 lg:grid-cols-[1fr_0.85fr] lg:items-end">
           <div className="max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gold">
               Hidden Gems
             </p>
-            <h2 className="text-4xl font-semibold text-foreground [text-shadow:0_0_30px_rgba(212,175,55,0.12)] sm:text-5xl">
+            <h2 className="text-3xl font-semibold text-foreground [text-shadow:0_0_30px_rgba(212,175,55,0.12)] md:text-4xl xl:text-5xl">
               Places History Forgot
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-foreground/70 sm:text-lg">
@@ -65,7 +65,7 @@ export default function HiddenGems() {
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-1">
             {["Underrated places", "Low visibility score", "Disappearing heritage"].map(
               (label) => (
                 <div
@@ -79,7 +79,7 @@ export default function HiddenGems() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
           {hiddenGems.map((site) => (
             <SiteCard key={site.title} {...site} />
           ))}
