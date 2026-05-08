@@ -1,30 +1,43 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-export async function generateHeritageStory(siteData) {
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-  });
+export const generateHeritageStory = async (siteData) => {
+  try {
+    const { name, location, period, type } = siteData;
 
-  const prompt = `
-Generate:
-1. Tourist-friendly summary
-2. Historical narrative
-3. Local folklore
-4. 3 interesting facts
+    const prompt = `
+Generate a short engaging heritage story about this historical site.
 
-Site Info:
-${JSON.stringify(siteData)}
+Name: ${name}
+Location: ${location}
+Historical Period: ${period}
+Type: ${type}
 
-Tone:
-Immersive, emotional, educational.
+Keep it informative and emotional.
 `;
 
-  const result = await model.generateContent(prompt);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+    });
 
-  return result.response.text();
-}
+    const result = await model.generateContent(prompt);
+
+    const response = await result.response;
+
+    const text = response.text();
+
+    return {
+      success: true,
+      story: text,
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      success: false,
+      message: "AI generation failed",
+      error: error.message,
+    };
+  }
+};

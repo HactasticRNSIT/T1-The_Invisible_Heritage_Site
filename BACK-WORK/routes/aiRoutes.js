@@ -5,13 +5,11 @@ const router = express.Router();
 
 router.post("/generate-story", async (req, res) => {
   try {
-    const siteData = req.body;
-
-    const story = await generateHeritageStory(siteData);
+    const result = await generateHeritageStory(req.body);
 
     res.json({
       success: true,
-      story,
+      story: result,
     });
   } catch (error) {
     console.error(error);
