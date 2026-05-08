@@ -7,7 +7,7 @@ import {
   Popup,
 } from "react-leaflet";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "leaflet/dist/leaflet.css";
 
@@ -15,10 +15,37 @@ import indianHeritageSites from "@/data/indianHeritageSites";
 
 export default function ExplorePage() {
 
+  const [sites, setSites] = useState(indianHeritageSites);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  const filteredSites = indianHeritageSites.filter((site) => {
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+    fetch(`${apiUrl}/sites/map`)
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data) => {
+        if (data?.sites?.length) {
+          setSites(
+            data.sites.map((site) => ({
+              id: site._id,
+              name: site.name,
+              latitude: site.latitude,
+              longitude: site.longitude,
+              category: site.category,
+              state: site.state,
+              description: site.description,
+              image: site.image,
+            })),
+          );
+        }
+      })
+      .catch(() => {
+        setSites(indianHeritageSites);
+      });
+  }, []);
+
+  const filteredSites = sites.filter((site) => {
 
     const matchesSearch =
       site.name.toLowerCase().includes(search.toLowerCase());

@@ -1,6 +1,9 @@
 const express = require("express");
 const {
   getAllSites,
+  getFeaturedSites,
+  getHiddenGems,
+  getMapSites,
   getSiteById,
   createSite,
   updateSite,
@@ -17,6 +20,9 @@ const router = express.Router();
 // Public
 router.get("/",                       getAllSites);           // GET  /api/sites
 router.get("/recommendations",        getRecommendations);   // GET  /api/sites/recommendations
+router.get("/featured",               getFeaturedSites);     // GET  /api/sites/featured
+router.get("/hidden-gems",            getHiddenGems);        // GET  /api/sites/hidden-gems
+router.get("/map",                    getMapSites);          // GET  /api/sites/map
 router.get("/:id",                    getSiteById);          // GET  /api/sites/:id
 
 // Protected (admin only)

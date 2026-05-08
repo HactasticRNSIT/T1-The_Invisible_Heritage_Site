@@ -12,6 +12,7 @@ const adminRoutes        = require("./routes/adminRoutes");
 const aiRoutes           = require("./routes/aiRoutes");
 const siteRoutes         = require("./routes/siteRoutes");
 const contributionRoutes = require("./routes/contributionRoutes");
+const storyRoutes        = require("./routes/storyRoutes");
 
 const app = express();
 
@@ -19,7 +20,10 @@ const app = express();
 connectDB();
 
 // Global middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  credentials: true,
+}));
 app.use(express.json());
 
 // Health check
@@ -33,6 +37,7 @@ app.use("/api/admin",         adminRoutes);
 app.use("/api",               aiRoutes);
 app.use("/api/sites",         siteRoutes);
 app.use("/api/contributions", contributionRoutes);
+app.use("/api/stories",       storyRoutes);
 
 // 404 fallback
 app.use((req, res) => {

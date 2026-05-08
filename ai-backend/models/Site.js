@@ -19,6 +19,9 @@ const siteSchema = new mongoose.Schema(
     languages: [{ type: String }],
     tags: [{ type: String }],
     images: [{ type: String }],
+    badge: { type: String, default: "Heritage Site" },
+    visibilityScore: { type: Number, min: 0, max: 100, default: 50 },
+    riskLabel: { type: String },
     aiStory: { type: String },
     oralHistory: { type: String },
     status: { type: String, enum: ["pending", "approved", "rejected"], default: "approved" },
@@ -26,6 +29,8 @@ const siteSchema = new mongoose.Schema(
     averageRating: { type: Number, default: 0 },
     totalReviews: { type: Number, default: 0 },
     visitCount: { type: Number, default: 0 },
+    featured: { type: Boolean, default: false },
+    hiddenGem: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
