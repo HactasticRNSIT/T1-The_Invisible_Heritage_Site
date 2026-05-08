@@ -1,8 +1,10 @@
+import "./globals.css";
 import "leaflet/dist/leaflet.css";
+
 
 export const metadata = {
   title: "Invisible Heritage Site",
-  description: "Heritage Discovery Platform",
+  description: "India Heritage Explorer",
 };
 
 export default function RootLayout({ children }) {
