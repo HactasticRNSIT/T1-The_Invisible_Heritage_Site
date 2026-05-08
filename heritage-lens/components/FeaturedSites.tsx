@@ -38,7 +38,7 @@ export default function FeaturedSites() {
       <div className="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-[#2f6f73]/15 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-10 max-w-2xl">
+        <div className="explore-reveal mb-10 max-w-2xl">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gold">
             Curated Heritage
           </p>
@@ -48,9 +48,15 @@ export default function FeaturedSites() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {featuredSites.map((site) => (
-          <SiteCard key={site.title} {...site} />
-        ))}
+          {featuredSites.map((site, index) => (
+            <div
+              key={site.title}
+              className="explore-card opacity-100 transition duration-500"
+              style={{ animationDelay: `${index * 140}ms` }}
+            >
+              <SiteCard {...site} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

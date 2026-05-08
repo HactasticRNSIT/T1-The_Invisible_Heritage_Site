@@ -23,7 +23,7 @@ export default function Hero() {
           <div className="animate-fade-in-up animation-delay-450 mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#featured-sites"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#D4AF37] px-7 text-base font-semibold text-[#0B0F19] shadow-[0_0_38px_rgba(212,175,55,0.3)] transition duration-300 hover:-translate-y-1 hover:bg-[#f0cb53] hover:shadow-[0_0_46px_rgba(212,175,55,0.42)]"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[#D4AF37] px-7 text-base font-semibold text-[#0B0F19] shadow-[0_0_38px_rgba(212,175,55,0.3)] transition duration-300 hover:-translate-y-1 hover:bg-[#f0cb53] hover:shadow-[0_0_46px_rgba(212,175,55,0.42)] active:scale-95"
             >
               Explore Sites
             </a>

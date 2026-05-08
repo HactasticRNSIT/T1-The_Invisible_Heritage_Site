@@ -24,6 +24,10 @@ body {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -67,6 +71,29 @@ h6 {
   }
 }
 
+@keyframes explore-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease forwards;
   opacity: 0;
@@ -78,6 +105,16 @@ h6 {
 
 .animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
+}
+
+#featured-sites:target .explore-reveal {
+  animation: explore-reveal 0.8s ease forwards;
+}
+
+#featured-sites:target .explore-card {
+  animation:
+    explore-reveal 0.75s ease forwards,
+    float-card 5s ease-in-out 0.85s infinite;
 }
 
 .animation-delay-150 {
