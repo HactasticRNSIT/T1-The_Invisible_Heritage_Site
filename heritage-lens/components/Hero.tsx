@@ -39,6 +39,12 @@ export default function Hero() {
             <Button href="#about" variant="glass">
               Learn More
             </Button>
+            <Button href="/login" variant="ghost">
+              Login
+            </Button>
+            <Button href="/register" variant="glass">
+              Register
+            </Button>
           </div>
         </div>
 
