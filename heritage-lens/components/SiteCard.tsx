@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Button } from "./ui";
 
 type SiteCardProps = {
@@ -28,13 +30,15 @@ export default function SiteCard({
 
   return (
     <article className="group rounded-xl bg-[linear-gradient(135deg,rgba(212,175,55,0.72),rgba(255,255,255,0.14),rgba(47,111,115,0.48))] p-px shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_32px_rgba(212,175,55,0.08)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(212,175,55,0.18),0_0_46px_rgba(47,111,115,0.14)]">
-      <div className="h-full overflow-hidden rounded-xl border border-white/10 bg-card-background backdrop-blur-xl">
-        <div className="relative h-48 overflow-hidden md:h-52 xl:h-56">
-          <img
-            src={image}
-            alt={imageAlt ?? title}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-          />
+        <div className="h-full overflow-hidden rounded-xl border border-white/10 bg-card-background backdrop-blur-xl">
+          <div className="relative h-48 overflow-hidden md:h-52 xl:h-56">
+            <Image
+              src={image}
+              alt={imageAlt ?? title}
+              fill
+              sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+              className="object-cover transition duration-700 group-hover:scale-110"
+            />
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(11,15,25,0.08),rgba(11,15,25,0.82))]" />
           <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">
             <span className="rounded-full border border-gold/30 bg-background/45 px-3 py-1 text-xs font-semibold text-gold shadow-[0_0_24px_rgba(212,175,55,0.18)] backdrop-blur">

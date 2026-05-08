@@ -1,6 +1,7 @@
-import SiteCard from "./SiteCard";
 import { getHiddenGems, siteToCard } from "@/lib/heritageApi";
 import type { ApiSite } from "@/lib/heritageApi";
+
+import SiteCard from "./SiteCard";
 
 const fallbackHiddenGems: ApiSite[] = [
   {
@@ -8,7 +9,11 @@ const fallbackHiddenGems: ApiSite[] = [
     location: { district: "Patan", country: "India" },
     description:
       "An underground architectural archive whose stories are often hidden behind larger monument circuits.",
-    images: ["https://images.unsplash.com/photo-1623059508779-c842f62f6d4e?auto=format&fit=crop&w=900&q=80"],
+    images: [
+      "https://images.pexels.com/photos/36892704/pexels-photo-36892704.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+    imageAlt:
+      "Historic Indian temple ruins with intricate sandstone carvings",
     badge: "Underrated Place",
     visibilityScore: 34,
     riskLabel: "Low visibility score",
@@ -18,7 +23,10 @@ const fallbackHiddenGems: ApiSite[] = [
     location: { state: "Assam", country: "India" },
     description:
       "Living monasteries and cultural practices on a river island shaped by erosion, migration, and fragile memory.",
-    images: ["https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=900&q=80"],
+    images: [
+      "https://images.pexels.com/photos/7470318/pexels-photo-7470318.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+    imageAlt: "Ancient temple with carved architecture under a blue sky",
     badge: "Disappearing Heritage",
     visibilityScore: 27,
     riskLabel: "Erosion threat",
@@ -28,7 +36,10 @@ const fallbackHiddenGems: ApiSite[] = [
     location: { state: "Karnataka", country: "India" },
     description:
       "A layered Deccan fortress with quiet courtyards, gateways, and water systems that rarely surface in travel discovery.",
-    images: ["https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"],
+    images: [
+      "https://images.pexels.com/photos/28411721/pexels-photo-28411721.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+    imageAlt: "Old temple ruins surrounded by mountains and greenery",
     badge: "Under-Mapped Site",
     visibilityScore: 41,
     riskLabel: "Sparse digital records",
@@ -64,16 +75,18 @@ export default async function HiddenGems() {
           </div>
 
           <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-1">
-            {["Underrated places", "Low visibility score", "Disappearing heritage"].map(
-              (label) => (
-                <div
-                  key={label}
-                  className="rounded-xl border border-gold/20 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-foreground/82 shadow-[0_0_30px_rgba(212,175,55,0.08)] backdrop-blur"
-                >
-                  {label}
-                </div>
-              ),
-            )}
+            {[
+              "Underrated places",
+              "Low visibility score",
+              "Disappearing heritage",
+            ].map((label) => (
+              <div
+                key={label}
+                className="rounded-xl border border-gold/20 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-foreground/82 shadow-[0_0_30px_rgba(212,175,55,0.08)] backdrop-blur"
+              >
+                {label}
+              </div>
+            ))}
           </div>
         </div>
 

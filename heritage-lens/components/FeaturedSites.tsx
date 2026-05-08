@@ -6,31 +6,37 @@ import { Section } from "./ui";
 
 const fallbackFeaturedSites: ApiSite[] = [
   {
-    name: "Taj Mahal",
-    location: { district: "Agra", country: "India" },
-    description: "A marble monument celebrated for its architecture and craft.",
+    name: "Modhera Sun Temple",
+    location: { state: "Gujarat", country: "India" },
+    description:
+      "Carved stone pillars and sacred geometry glowing in warm temple light.",
     images: [
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1762542312590-69b5800a76d9?auto=format&fit=crop&w=1200&q=80",
     ],
+    imageAlt:
+      "Intricately carved stone pillars inside an ancient Indian temple",
     badge: "Featured Site",
   },
   {
     name: "Hampi",
     location: { state: "Karnataka", country: "India" },
-    description: "A historic city of temples, markets, and stone landscapes.",
+    description:
+      "A cinematic landscape of temple columns, pavilions, and weathered ruins.",
     images: [
-      "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=900&q=80",
+      "https://images.pexels.com/photos/35978661/pexels-photo-35978661.jpeg?auto=compress&cs=tinysrgb&w=1200",
     ],
+    imageAlt: "Ancient stone temple with intricate columns in Hampi",
     badge: "Featured Site",
   },
   {
-    name: "Konark Sun Temple",
-    location: { state: "Odisha", country: "India" },
+    name: "Lepakshi Temple",
+    location: { state: "Andhra Pradesh", country: "India" },
     description:
-      "A stone chariot of the sun, carved with celestial detail and precise geometry.",
+      "Sacred stone corridors and ancient pillars preserved in sharp daylight.",
     images: [
-      "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=900&q=80",
+      "https://images.pexels.com/photos/34071245/pexels-photo-34071245.jpeg?auto=compress&cs=tinysrgb&w=1200",
     ],
+    imageAlt: "Ancient Indian temple ruins with stone pillars under blue sky",
     badge: "Featured Site",
   },
 ];

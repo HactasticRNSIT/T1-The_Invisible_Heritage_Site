@@ -1,8 +1,18 @@
+import Image from "next/image";
+
 import { Button } from "./ui";
 
 export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-background px-5 py-16 text-foreground sm:px-8 md:px-10 md:py-20 lg:px-16 lg:py-28 xl:px-20">
+      <Image
+        src="https://images.pexels.com/photos/30647802/pexels-photo-30647802.jpeg?auto=compress&cs=tinysrgb&w=1800"
+        alt="Ancient Indian temple architecture under a clear sky"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-10 object-cover opacity-28"
+      />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(212,175,55,0.22),transparent_26%),radial-gradient(circle_at_82%_16%,rgba(139,115,85,0.24),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_45%)]" />
       <div className="absolute -left-28 top-10 -z-10 h-80 w-80 rounded-full bg-gold/25 blur-[110px]" />
       <div className="absolute -right-24 top-0 -z-10 h-96 w-96 rounded-full bg-secondary/30 blur-[120px]" />
@@ -48,8 +58,14 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="animate-float-slow relative mx-auto h-[360px] max-w-[560px] rounded-[1.5rem] border border-white/10 bg-card-background p-4 shadow-[0_0_80px_rgba(212,175,55,0.14),0_28px_70px_rgba(0,0,0,0.52)] backdrop-blur transition duration-500 before:absolute before:-inset-6 before:-z-10 before:rounded-[2rem] before:bg-[radial-gradient(circle,rgba(212,175,55,0.18),transparent_62%)] before:blur-2xl hover:border-gold/25 md:h-[420px] md:rounded-[2rem] md:p-5 lg:h-[440px]">
-            <div className="absolute inset-4 rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(212,175,55,0.18),rgba(255,255,255,0.03)),url('/globe.svg')] bg-[length:96px] bg-[right_1.5rem_top_1.5rem] bg-no-repeat opacity-95 invert md:inset-5 md:rounded-[1.5rem] md:bg-[length:120px] md:bg-[right_2rem_top_2rem]" />
+          <div className="animate-float-slow relative mx-auto h-[360px] max-w-[560px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-card-background p-4 shadow-[0_0_80px_rgba(212,175,55,0.14),0_28px_70px_rgba(0,0,0,0.52)] backdrop-blur transition duration-500 before:absolute before:-inset-6 before:-z-10 before:rounded-[2rem] before:bg-[radial-gradient(circle,rgba(212,175,55,0.18),transparent_62%)] before:blur-2xl hover:border-gold/25 md:h-[420px] md:rounded-[2rem] md:p-5 lg:h-[440px]">
+            <Image
+              src="https://images.unsplash.com/photo-1762542312590-69b5800a76d9?auto=format&fit=crop&w=1200&q=80"
+              alt="Intricate carved pillars inside an ancient Indian temple"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="absolute inset-0 object-cover opacity-90"
+            />
             <div className="absolute inset-4 rounded-[1.25rem] bg-[linear-gradient(to_bottom,rgba(11,15,25,0.1),rgba(11,15,25,0.72))] md:inset-5 md:rounded-[1.5rem]" />
             <div className="absolute inset-6 rounded-[1.15rem] border border-gold/20 md:inset-8 md:rounded-[1.35rem]" />
 

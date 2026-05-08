@@ -94,9 +94,49 @@ h6 {
   }
 }
 
+@keyframes loader-fade-out {
+  0%,
+  72% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes logo-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  35%,
+  72% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.99);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease forwards;
   opacity: 0;
+}
+
+.loader-screen {
+  animation: loader-fade-out 2.1s ease forwards;
+  pointer-events: none;
+}
+
+.loader-logo {
+  animation: logo-fade 2s ease forwards;
 }
 
 .animate-float-soft {

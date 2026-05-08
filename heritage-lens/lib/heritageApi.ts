@@ -9,6 +9,7 @@ export type ApiSite = {
     country?: string;
   };
   images?: string[];
+  imageAlt?: string;
   badge?: string;
   visibilityScore?: number;
   riskLabel?: string;
@@ -53,6 +54,7 @@ export function siteToCard(site: ApiSite) {
     location: formatLocation(site),
     description: site.description,
     image: site.images?.[0] || "/globe.svg",
+    imageAlt: site.imageAlt,
     href: site._id ? `/sites/${site._id}` : "#",
     badge: site.badge,
     visibilityScore: site.visibilityScore,
