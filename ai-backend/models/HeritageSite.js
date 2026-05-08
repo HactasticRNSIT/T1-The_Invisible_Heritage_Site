@@ -1,29 +1,43 @@
 const mongoose = require("mongoose");
 
-const heritageSiteSchema = new mongoose.Schema(
+const siteSchema = new mongoose.Schema(
   {
-    title: String,
-    category: String,
-    state: String,
-    district: String,
-    description: String,
-    history: String,
-    folklore: String,
-    images: [String],
-
-    coordinates: {
-      lat: Number,
-      lng: Number
+    name: { type: String, required: true, trim: true },
+    description: { type: String, required: true },
+    category: {
+      type: String,
+      enum: ["temple", "battlefield", "architecture", "natural", "sacred", "monument", "other"],
+      default: "other",
     },
-
-    visibilityScore: {
-      type: Number,
-      default: 50
+    location: {
+      address: { type: String },
+      district: { type: String },
+      state: { type: String },
+      country: { type: String, default: "India" },
+      coordinates: {
+        lat: { type: Number },
+        lng: { type: Number },
+      },
     },
-
-    tags: [String]
+    languages: [{ type: String }],         // available content languages
+    tags: [{ type: String }],              // searchable keywords
+    images: [{ type: String }],            // image URLs
+    aiStory: { type: String },             // AI-generated narrative
+    oralHistory: { type: String },         // community-contributed oral history
+    status: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "approved",                 // admin-created sites are auto-approved
+    },
+    submittedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    averageRating: { type: Number, default: 0 },
+    totalReviews: { type: Number, default: 0 },
+    visitCount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("HeritageSite", heritageSiteSchema);
+// Full-text search index
+siteSchema.index({ name: "text", description: "text", tags: "text", "location.district": "text" });
+
+module.exports = mongoose.model("Site", siteSchema);
