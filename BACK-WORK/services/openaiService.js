@@ -1,21 +1,21 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.OPENAI_API_KEY);
 
 export const generateHeritageStory = async (siteData) => {
   try {
     const { name, location, period, type } = siteData;
 
     const prompt = `
-Generate a short engaging heritage story about this historical site.
+      Generate a short engaging heritage story about this historical site.
 
-Name: ${name}
-Location: ${location}
-Historical Period: ${period}
-Type: ${type}
+      Name: ${name}
+      Location: ${location}
+      Historical Period: ${period}
+      Type: ${type}
 
-Keep it informative and emotional.
-`;
+      Keep it informative, emotional, and easy to understand.
+    `;
 
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
@@ -32,7 +32,7 @@ Keep it informative and emotional.
       story: text,
     };
   } catch (error) {
-    console.error(error);
+    console.error("AI Error:", error);
 
     return {
       success: false,
