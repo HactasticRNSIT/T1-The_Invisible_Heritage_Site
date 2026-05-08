@@ -1,45 +1,43 @@
 import SiteCard from "./SiteCard";
+import { getHiddenGems, siteToCard } from "@/lib/heritageApi";
+import type { ApiSite } from "@/lib/heritageApi";
 
-const hiddenGems = [
+const fallbackHiddenGems: ApiSite[] = [
   {
-    title: "Rani ki Vav Stepwell",
-    location: "Patan, India",
+    name: "Rani ki Vav Stepwell",
+    location: { district: "Patan", country: "India" },
     description:
       "An underground architectural archive whose stories are often hidden behind larger monument circuits.",
-    image:
-      "https://images.unsplash.com/photo-1623059508779-c842f62f6d4e?auto=format&fit=crop&w=900&q=80",
-    href: "#rani-ki-vav",
+    images: ["https://images.unsplash.com/photo-1623059508779-c842f62f6d4e?auto=format&fit=crop&w=900&q=80"],
     badge: "Underrated Place",
     visibilityScore: 34,
     riskLabel: "Low visibility score",
   },
   {
-    title: "Majuli Satras",
-    location: "Assam, India",
+    name: "Majuli Satras",
+    location: { state: "Assam", country: "India" },
     description:
       "Living monasteries and cultural practices on a river island shaped by erosion, migration, and fragile memory.",
-    image:
-      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=900&q=80",
-    href: "#majuli",
+    images: ["https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=900&q=80"],
     badge: "Disappearing Heritage",
     visibilityScore: 27,
     riskLabel: "Erosion threat",
   },
   {
-    title: "Bidar Fort",
-    location: "Karnataka, India",
+    name: "Bidar Fort",
+    location: { state: "Karnataka", country: "India" },
     description:
       "A layered Deccan fortress with quiet courtyards, gateways, and water systems that rarely surface in travel discovery.",
-    image:
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80",
-    href: "#bidar-fort",
+    images: ["https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"],
     badge: "Under-Mapped Site",
     visibilityScore: 41,
     riskLabel: "Sparse digital records",
   },
 ];
 
-export default function HiddenGems() {
+export default async function HiddenGems() {
+  const hiddenGems = await getHiddenGems(fallbackHiddenGems);
+
   return (
     <section
       id="hidden-gems"
@@ -81,7 +79,7 @@ export default function HiddenGems() {
 
         <div className="grid gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
           {hiddenGems.map((site) => (
-            <SiteCard key={site.title} {...site} />
+            <SiteCard key={site._id || site.name} {...siteToCard(site)} />
           ))}
         </div>
       </div>

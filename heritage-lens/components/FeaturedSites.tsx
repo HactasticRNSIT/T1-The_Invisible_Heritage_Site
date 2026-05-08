@@ -1,34 +1,35 @@
 import SiteCard from "./SiteCard";
+import { getFeaturedSites, siteToCard } from "@/lib/heritageApi";
+import type { ApiSite } from "@/lib/heritageApi";
 
-const featuredSites = [
+const fallbackFeaturedSites: ApiSite[] = [
   {
-    title: "Taj Mahal",
-    location: "Agra, India",
+    name: "Taj Mahal",
+    location: { district: "Agra", country: "India" },
     description: "A marble monument celebrated for its architecture and craft.",
-    image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80",
-    href: "#taj-mahal",
+    images: ["https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80"],
+    badge: "Featured Site",
   },
   {
-    title: "Hampi",
-    location: "Karnataka, India",
+    name: "Hampi",
+    location: { state: "Karnataka", country: "India" },
     description: "A historic city of temples, markets, and stone landscapes.",
-    image:
-      "https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=900&q=80",
-    href: "#hampi",
+    images: ["https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&w=900&q=80"],
+    badge: "Featured Site",
   },
   {
-    title: "Konark Sun Temple",
-    location: "Odisha, India",
+    name: "Konark Sun Temple",
+    location: { state: "Odisha", country: "India" },
     description:
       "A stone chariot of the sun, carved with celestial detail and precise geometry.",
-    image:
-      "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=900&q=80",
-    href: "#konark-sun-temple",
+    images: ["https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=900&q=80"],
+    badge: "Featured Site",
   },
 ];
 
-export default function FeaturedSites() {
+export default async function FeaturedSites() {
+  const featuredSites = await getFeaturedSites(fallbackFeaturedSites);
+
   return (
     <section
       id="featured-sites"
@@ -50,11 +51,11 @@ export default function FeaturedSites() {
         <div className="grid gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
           {featuredSites.map((site, index) => (
             <div
-              key={site.title}
+              key={site._id || site.name}
               className="explore-card opacity-100 transition duration-500"
               style={{ animationDelay: `${index * 140}ms` }}
             >
-              <SiteCard {...site} />
+              <SiteCard {...siteToCard(site)} />
             </div>
           ))}
         </div>

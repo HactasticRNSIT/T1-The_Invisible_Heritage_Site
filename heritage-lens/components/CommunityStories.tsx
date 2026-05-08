@@ -1,4 +1,7 @@
-const stories = [
+import { getCommunityStories } from "@/lib/heritageApi";
+import type { ApiStory } from "@/lib/heritageApi";
+
+const fallbackStories: ApiStory[] = [
   {
     quote:
       "My grandmother never called it a monument. She called it the place where the village learned to wait for rain.",
@@ -32,7 +35,9 @@ const narrativeThreads = [
   "Memories before they disappear",
 ];
 
-export default function CommunityStories() {
+export default async function CommunityStories() {
+  const stories = await getCommunityStories(fallbackStories);
+
   return (
     <section
       id="community-stories"
@@ -73,16 +78,16 @@ export default function CommunityStories() {
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:gap-6 xl:grid-cols-3">
           {stories.map((story, index) => (
             <article
-              key={story.title}
+              key={story._id || story.title}
               className="group rounded-xl bg-[linear-gradient(135deg,rgba(212,175,55,0.62),rgba(255,255,255,0.12),rgba(47,111,115,0.44))] p-px shadow-[0_24px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(212,175,55,0.08)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_32px_88px_rgba(0,0,0,0.4),0_0_48px_rgba(212,175,55,0.18)]"
               style={{ transitionDelay: `${index * 60}ms` }}
             >
               <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl md:p-6">
                 <div className="absolute right-5 top-4 text-6xl font-semibold leading-none text-gold/15 transition duration-500 group-hover:text-gold/25 md:right-6 md:top-5 md:text-7xl">
-                  "
+                  &quot;
                 </div>
                 <p className="relative text-base leading-7 text-foreground/88 md:text-lg md:leading-8">
-                  "{story.quote}"
+                  &quot;{story.quote}&quot;
                 </p>
                 <div className="mt-6 border-t border-white/10 pt-5">
                   <h3 className="text-xl font-semibold text-foreground transition duration-300 group-hover:text-gold md:text-2xl">
